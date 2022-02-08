@@ -8,4 +8,4 @@ CRTL + E : Arquivos recentes
 CRTL + F : Busca  texto dentro do arquivo atual
 SHIFT + CRTL + F : Busca texto dentro de todos os arquivos no AS
 SHIFT + CRTL + O : Organiza os imports
-SHIFT + CRTL + L : Organiza a indentção  
+SHIFT + CRTL + L : Organiza a indentação  
