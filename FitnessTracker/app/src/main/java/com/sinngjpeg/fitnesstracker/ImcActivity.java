@@ -1,8 +1,8 @@
-package co.tiagoaguiar.codelab.myapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.sinngjpeg.fitnesstracker;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ImcActivity extends AppCompatActivity {
 
