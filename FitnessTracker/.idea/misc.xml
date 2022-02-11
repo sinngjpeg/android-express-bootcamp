@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Sinng/Projetos/android-express-bootcamp/FitnessTracker/app/src/main/res/layout/activity_imc.xml" value="0.1765625" />
+        <entry key="..\:/Users/Sinng/Projetos/android-express-bootcamp/FitnessTracker/app/src/main/res/drawable/ic_sunny.xml" value="0.196875" />
+        <entry key="..\:/Users/Sinng/Projetos/android-express-bootcamp/FitnessTracker/app/src/main/res/layout/activity_imc.xml" value="0.33" />
         <entry key="..\:/Users/Sinng/Projetos/android-express-bootcamp/FitnessTracker/app/src/main/res/layout/activity_main.xml" value="0.1765625" />
       </map>
     </option>
