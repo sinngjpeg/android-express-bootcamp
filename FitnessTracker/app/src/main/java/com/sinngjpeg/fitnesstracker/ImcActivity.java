@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ImcActivity extends AppCompatActivity {
@@ -43,7 +44,10 @@ public class ImcActivity extends AppCompatActivity {
                 Log.d("Teste", "resultado: " + result);
 
                 int imcResponseId = imcResponse(result);
-                Toast.makeText(ImcActivity.this, imcResponseId, Toast.LENGTH_LONG).show();
+                AlertDialog dialog = new AlertDialog.Builder(ImcActivity.this)
+                        .setTitle(getString(R.string.imc_response, result))
+                        .create();
+                dialog.show();
             }
         });
     }
