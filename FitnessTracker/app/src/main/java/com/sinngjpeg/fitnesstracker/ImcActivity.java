@@ -1,5 +1,6 @@
 package com.sinngjpeg.fitnesstracker;
 
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ public class ImcActivity extends AppCompatActivity {
         editWeight = findViewById(R.id.edt_imc_weight);
 
         Button btnSend = findViewById(R.id.btn_imc_send);
+
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,12 +33,12 @@ public class ImcActivity extends AppCompatActivity {
                     Toast.makeText(ImcActivity.this, R.string.fields_message, Toast.LENGTH_LONG).show();
                     return;
                 }
-
                 String sHeight = editHeight.getText().toString();
                 String sWeight = editWeight.getText().toString();
 
                 int height = Integer.parseInt(sHeight);
                 int weight = Integer.parseInt(sWeight);
+
                 double result = calculateIMC(height, weight);
                 Log.d("Teste", "resultado: " + result);
 
@@ -64,10 +66,10 @@ public class ImcActivity extends AppCompatActivity {
             return R.string.imc_severely_high_weight;
         else
             return R.string.imc_extreme_weight;
-
     }
 
     private double calculateIMC(int height, int weight) {
+        // peso / (altura + altura)
         return weight / (((double) height / 100) * ((double) height / 100));
     }
 
