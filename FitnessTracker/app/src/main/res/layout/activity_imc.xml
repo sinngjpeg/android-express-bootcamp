@@ -22,12 +22,16 @@
         <EditText
             android:id="@+id/edt_imc_weight"
             style="@style/EditTextForm"
-            android:hint="@string/weight" />
+            android:hint="@string/weight"
+            android:imeOptions="actionNext"
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/edt_imc_height"
             style="@style/EditTextForm"
-            android:hint="@string/height" />
+            android:hint="@string/height"
+            android:imeOptions="actionDone"
+            android:inputType="number" />
 
         <Button
             android:id="@+id/btn_imc_send"
