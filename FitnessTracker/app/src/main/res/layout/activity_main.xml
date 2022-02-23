@@ -8,25 +8,11 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/btn_imc"
-        android:background="@color/colorLightGray"
-        android:paddingTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_sunny" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/main_item"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_imc" />
-    </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
