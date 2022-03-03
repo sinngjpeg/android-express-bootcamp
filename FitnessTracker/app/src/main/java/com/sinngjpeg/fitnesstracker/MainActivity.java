@@ -6,9 +6,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,15 +27,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rvMain = findViewById(R.id.rv_main);
-
        /* -> definir comportamento de exibição do layout da recylceview
                 pode ser:  mosaico, grid , linear ( horizontal | vertical )
         */
+        rvMain = findViewById(R.id.rv_main);
+
+        List<MainItem> mainItems = new ArrayList<>();
+        mainItems.add(new MainItem(1, R.drawable.ic_sunny, R.string.label_imc, Color.GREEN));
+        mainItems.add(new MainItem(2, R.drawable.ic_visibility, R.string.tmb, Color.YELLOW));
+
 
         rvMain.setLayoutManager(new LinearLayoutManager(this));
-        MainAdapter adapter = new MainAdapter();
+        MainAdapter adapter = new MainAdapter(mainItems);
         rvMain.setAdapter(adapter);
+
+
 //        btnImc = findViewById(R.id.btn_imc);
 //        btnImc.setOnClickListener(v -> {
 //            Intent intent = new Intent(MainActivity.this, ImcActivity.class);
@@ -36,22 +49,28 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
-    private class MainAdapter extends RecyclerView.Adapter {
+    private class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
+        private List<MainItem> mainItems;
+
+        public MainAdapter(List<MainItem> mainItems) {
+            this.mainItems = mainItems;
+        }
 
         @NonNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new MainViewHolder(getLayoutInflater().inflate(R.layout.main_item, parent, false));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
+            MainItem mainItemCurrent = mainItems.get(position);
+            holder.bind(mainItemCurrent);
         }
 
         @Override
         public int getItemCount() {
-            return 15;
+            return mainItems.size();
         }
     }
 
@@ -60,6 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
         public MainViewHolder(@NonNull View itemView) {
             super(itemView);
+        }
+
+        public void bind(MainItem item) {
+            TextView textName = itemView.findViewById(R.id.item_txt_name);
+            ImageView imgIcon = itemView.findViewById(R.id.item_img_icon);
+            LinearLayout container = (LinearLayout) itemView;
+
+            textName.setText(item.getTextStringId());
+            imgIcon.setImageResource(item.getDrawableId());
+            container.setBackgroundColor(item.getColor());
         }
     }
 }
